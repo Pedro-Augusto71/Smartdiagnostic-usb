@@ -1,0 +1,4 @@
+laudo_diagnostico.txt
+*.txt
+__pycache__/
+*.pyc
