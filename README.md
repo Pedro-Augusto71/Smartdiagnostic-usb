@@ -18,3 +18,36 @@ Para rodar este script, o ambiente Linux (Lubuntu) precisa ter as seguintes ferr
 ```bash
 sudo apt-get update
 sudo apt-get install python3 stress-ng memtester smartmontools
+
+## ⚙️ Instalação e Configuração
+
+1. Clone o repositório para o seu Live USB:
+   ```bash
+   git clone [https://github.com/Pedro-Augusto71/Smartdiagnostic-usb.git](https://github.com/Pedro-Augusto71/Smartdiagnostic-usb.git)
+
+Configure as credenciais de e-mail no ficheiro diagnostico.py (insira o seu e-mail e a Senha de App do Gmail nas variáveis remetente e senha_app).
+
+Configurar o Autostart (Arranque Automático):
+Crie o atalho na pasta oculta do sistema:
+mkdir -p ~/.config/autostart
+nano ~/.config/autostart/diagnostico.desktop
+
+E cole a seguinte configuração:
+[Desktop Entry]
+Type=Application
+Name=Diagnostico Automatico
+Comment=Testador de Hardware USB
+Exec=qterminal -e bash -c "sudo python3 /home/lubuntu/diagnostico.py; echo ''; read -p 'Pressione ENTER para fechar a janela...' -r"
+Terminal=false
+
+💻 Como Usar
+Com o Autostart configurado, basta dar boot pelo Live USB. O terminal abrirá automaticamente solicitando o e-mail do técnico:
+
+Digite o e-mail para receber o laudo.
+
+Aguarde a execução dos testes (CPU, RAM, Disco).
+
+O laudo será salvo localmente em /home/lubuntu/laudo_diagnostico.txt e enviado por e-mail automaticamente.
+
+👨‍💻 Autor
+Desenvolvido por Pedro Augusto da Silva Abreu e Bruno Cruz Voltezou como Projeto em Engenharia da Computação I
